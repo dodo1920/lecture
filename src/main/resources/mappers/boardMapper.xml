@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.dodo1920.mappers.BoardMapper">
+  	<insert id="insertBoard">
+  		insert into test.tbl_board(title, content, writer) values(#{title}, #{content}, #{writer})
+  	</insert>
+  	
+  	<select id="readBoard" resultType="com.dodo1920.domain.BoardVO">
+  		select * from test.tbl_board where no = #{no}
+  	</select>
+  	
+  	<update id="updateBoard">
+  		update test.tbl_board set title=#{title}, content=#{content} where no = #{no}
+  	</update>
+  	
+  	<delete id="deleteBoard">
+  		delete from test.tbl_board where no = #{no}
+  	</delete>
+  	
+  	<select id="listBoard" resultType="com.dodo1920.domain.BoardVO">
+  		select * from test.tbl_board order by no desc
+  	</select>
+  </mapper>
+ 
