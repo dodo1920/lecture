@@ -28,10 +28,11 @@
   <link rel="stylesheet" href="resources/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="resources/plugins/summernote/summernote-bs4.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="resources/plugins/jquery/jquery.min.js"></script>
   <script>
   	$(function() {
-  		alert("!");
+  		
   	});
   </script>
 </head>
@@ -41,7 +42,36 @@
 	
   	<!-- Content Wrapper. Contains page content -->
  		<div class="content-wrapper">
-    
+    		<div class="container">
+		      <h1>게시판 글쓰기 페이지</h1><hr />
+		
+		         <form action="" method="post" enctype="multipart/form-data">
+		            <div class="form-group">
+		               <label class="control-label col-sm-2" for="writer">작성자 :</label>
+		               <div class="col-sm-10">
+		                  <input type="text" class="form-control" id="writer" name="writer" value="${sessionScope.loginMember.userid }" readonly>
+		               </div>
+		            </div>
+		            <div class="form-group">
+		               <label class="control-label col-sm-2" for="title">제 목 :</label>
+		               <div class="col-sm-10">
+		                  <input type="text" class="form-control" id="title" name="title">
+		               </div>
+		            </div>
+		            <div class="form-group">
+		               <label class="control-label col-sm-2" for="content">내 용 :</label>
+		               <div class="col-sm-10">
+		                  <textarea rows="10" cols="30" class="form-control" id="content" name="content"></textarea>
+		               </div>
+		            </div>
+		            <div class="form-group">
+		               <div class="col-sm-offset-2 col-sm-10">
+		                  <button type="submit" class="btn btn-success">저장</button>
+		                  <button type="button" class="btn btn-danger" >취소</button>
+		               </div>
+		            </div>
+		         </form>
+		      </div>
 		</div>
 	<!-- /.content-wrapper -->
   
