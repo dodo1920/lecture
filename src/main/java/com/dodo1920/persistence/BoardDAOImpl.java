@@ -36,7 +36,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int delete(int no) throws Exception {
 		// TODO Auto-generated method stub
-		return ses.delete(namespace + ".deleteBoard", no);
+		return ses.update(namespace + ".deleteBoard", no);
 	}
 
 	@Override

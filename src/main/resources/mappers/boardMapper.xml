@@ -17,7 +17,7 @@
   	</update>
   	
   	<delete id="deleteBoard">
-  		delete from test.tbl_board where no = #{no}
+  		update test.tbl_board set isDelete='Y' where no = #{no}
   	</delete>
   	
   	<select id="listBoard" resultType="com.dodo1920.domain.BoardVO">

@@ -9,12 +9,13 @@ public class BoardVO {
 	private String content;
 	private Date regdate;
 	private int viewcnt;
+	private String isDelete;
 	
 	public BoardVO() {
 		super();
 	}
 
-	public BoardVO(int no, String title, String writer, String content, Date regdate, int viewcnt) {
+	public BoardVO(int no, String title, String writer, String content, Date regdate, int viewcnt, String isDelete) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -22,7 +23,10 @@ public class BoardVO {
 		this.content = content;
 		this.regdate = regdate;
 		this.viewcnt = viewcnt;
+		this.isDelete = isDelete;
 	}
+
+
 
 	public int getNo() {
 		return no;
@@ -72,10 +76,18 @@ public class BoardVO {
 		this.viewcnt = viewcnt;
 	}
 
+	public String getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(String isDelete) {
+		this.isDelete = isDelete;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regdate="
-				+ regdate + ", viewcnt=" + viewcnt + "]";
+				+ regdate + ", viewcnt=" + viewcnt + ", isDelete=" + isDelete + "]";
 	}
 	
 }
