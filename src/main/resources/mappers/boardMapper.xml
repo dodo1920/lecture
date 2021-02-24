@@ -32,5 +32,9 @@
   	<select id="listBoardCriteria" resultType="com.dodo1920.domain.BoardVO">
   		select * from test.tbl_board order by no desc limit #{pageStart}, #{perPageNum}
   	</select>
+  	
+  	<select id="getTotalBoardCnt" resultType="int">
+  		select count(*) from test.tbl_board
+  	</select>
   </mapper>
  

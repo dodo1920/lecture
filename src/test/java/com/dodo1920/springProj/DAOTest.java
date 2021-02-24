@@ -85,13 +85,18 @@ public class DAOTest {
 //		System.out.println(dao.listBoardPaging(page).toString());
 //		
 //	}
+//	
+//	@Test
+//	public void testListCriteria() throws Exception {
+//		PagingCriteria cri = new PagingCriteria();
+//		cri.setPage(1);
+//		cri.setPerPageNum(20);
+//		
+//		System.out.println(dao.listBoardCriteria(cri).toString());
+//	}
 	
 	@Test
-	public void testListCriteria() throws Exception {
-		PagingCriteria cri = new PagingCriteria();
-		cri.setPage(1);
-		cri.setPerPageNum(20);
-		
-		System.out.println(dao.listBoardCriteria(cri).toString());
+	public void testGetBoardCount() throws Exception {
+		System.out.println(dao.getTotalBoardCnt());
 	}
 }

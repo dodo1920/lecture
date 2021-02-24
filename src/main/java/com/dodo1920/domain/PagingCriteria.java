@@ -26,6 +26,10 @@ public class PagingCriteria {
 		this.perPageNum = perPageNum;
 	}
 	
+	public int getPage() {
+		return this.page;
+	}
+	
 	public int getPageStart() {
 		return (this.page -1) * 10;
 	}

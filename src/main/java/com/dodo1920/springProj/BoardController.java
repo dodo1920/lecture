@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dodo1920.domain.BoardVO;
 import com.dodo1920.domain.PagingCriteria;
+import com.dodo1920.domain.PagingParam;
 import com.dodo1920.service.BoardService;
 
 @Controller
@@ -101,5 +102,13 @@ public class BoardController {
 		logger.info((cri.toString()));
 		
 		model.addAttribute("boardList", service.listCriiteria(cri));
+		
+		PagingParam pp = new PagingParam();
+		pp.setCri(cri);
+		pp.setTotalCount(service.getTotalBoardCnt());
+		
+		System.out.println(pp.toString());
+		
+		model.addAttribute("pagingParam", pp); // 페이징 처리를 위한 파라메터 객체
 	}
 }

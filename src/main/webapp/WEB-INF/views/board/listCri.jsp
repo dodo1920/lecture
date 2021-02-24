@@ -29,7 +29,11 @@
   <link rel="stylesheet" href="../resources/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../resources/plugins/summernote/summernote-bs4.min.css">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
   <script src="../resources/plugins/jquery/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script>
   	$(function() {
   		let result = '${result}';
@@ -105,13 +109,26 @@
                      <button type="submit" class="btn btn-default">검색</button>
                   </form>
                </div>
-
                
-               <div id="pagingArea">
-               </div>
-               
-               <div>
-                  <button type="button" class="btn btn-info" style="float: right;"
+               <div class="container">
+                 <ul class="pagination">
+                 	<c:if test="${pagingParam.prev }">
+                 		<li>
+                 			<a href="listCri?page=${param.page - 1 }"> < </a>
+                 		</li>
+                 	</c:if>
+                 <c:forEach begin="${pagingParam.startPage}" end="${pagingParam.endPage }" var="pageNo">
+                 	<li>
+                 		<a href="listCri?page=${pageNo }">${pageNo }</a>
+                 	</li>
+                 </c:forEach>
+					<c:if test="${pagingParam.next }">
+                 		<li>
+                 			<a href="listCri?page=${param.page + 1 }"> > </a>
+                 		</li>
+                 	</c:if>
+				 </ul>
+                 <button type="button" class="btn btn-info" style="float: right;"
                      onclick="location.href='/board/register';">글쓰기</button>
                </div>
 
