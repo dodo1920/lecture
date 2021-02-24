@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.dodo1920.domain.BoardVO;
+import com.dodo1920.domain.PagingCriteria;
 import com.dodo1920.persistence.BoardDAOImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class) // 현재 클래스가 Sprint-test(JUnit4) 와 함께 동작
@@ -36,14 +37,14 @@ public class DAOTest {
 //		}		
 //	}
 //	
-	@Test
-	public void readBoard() throws Exception {
-		BoardVO vo = new BoardVO();
-		
-		vo = dao.readBoard(2);
-		
-		System.out.println(vo.toString());
-	}
+//	@Test
+//	public void readBoard() throws Exception {
+//		BoardVO vo = new BoardVO();
+//		
+//		vo = dao.readBoard(2);
+//		
+//		System.out.println(vo.toString());
+//	}
 //	
 //	@Test
 //	public void updateBoard() throws Exception {
@@ -76,4 +77,21 @@ public class DAOTest {
 //		
 //		System.out.println(lst.toString());
 //	}
+//	
+//	@Test
+//	public void testListPaging() throws Exception {
+//		int page = 1;
+//		
+//		System.out.println(dao.listBoardPaging(page).toString());
+//		
+//	}
+	
+	@Test
+	public void testListCriteria() throws Exception {
+		PagingCriteria cri = new PagingCriteria();
+		cri.setPage(1);
+		cri.setPerPageNum(20);
+		
+		System.out.println(dao.listBoardCriteria(cri).toString());
+	}
 }

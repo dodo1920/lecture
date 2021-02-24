@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dodo1920.domain.BoardVO;
+import com.dodo1920.domain.PagingCriteria;
 import com.dodo1920.service.BoardService;
 
 @Controller
@@ -92,5 +93,13 @@ public class BoardController {
 		}
 		
 		return "redirect:/board/listAll";
+	}
+	
+	@RequestMapping(value="/listCri", method=RequestMethod.GET)
+	public void listAll(PagingCriteria cri, Model model) throws Exception {
+		logger.info("/페이징을 이용한 전체 목록 출력");
+		logger.info((cri.toString()));
+		
+		model.addAttribute("boardList", service.listCriiteria(cri));
 	}
 }

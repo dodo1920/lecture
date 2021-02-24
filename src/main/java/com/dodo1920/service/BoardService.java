@@ -3,6 +3,7 @@ package com.dodo1920.service;
 import java.util.List;
 
 import com.dodo1920.domain.BoardVO;
+import com.dodo1920.domain.PagingCriteria;
 
 public interface BoardService {
 	public boolean insert(BoardVO vo) throws Exception;
@@ -14,4 +15,6 @@ public interface BoardService {
 	public boolean remove(int no) throws Exception;
 	
 	public List<BoardVO> listAll() throws Exception;
+	
+	public List<BoardVO> listCriiteria(PagingCriteria cri) throws Exception;
 }

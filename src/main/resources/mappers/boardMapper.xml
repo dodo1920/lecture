@@ -23,5 +23,14 @@
   	<select id="listBoard" resultType="com.dodo1920.domain.BoardVO">
   		select * from test.tbl_board order by no desc
   	</select>
+  	
+  	<!-- 페이징 처리 : page부터 10개씩 출력 -->
+  	<select id="listBoardPaging" resultType="com.dodo1920.domain.BoardVO">
+  		select * from test.tbl_board order by no desc limit #{page}, 10
+  	</select>
+  	
+  	<select id="listBoardCriteria" resultType="com.dodo1920.domain.BoardVO">
+  		select * from test.tbl_board order by no desc limit #{pageStart}, #{perPageNum}
+  	</select>
   </mapper>
  

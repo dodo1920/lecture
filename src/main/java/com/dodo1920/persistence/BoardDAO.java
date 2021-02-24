@@ -3,6 +3,7 @@ package com.dodo1920.persistence;
 import java.util.List;
 
 import com.dodo1920.domain.BoardVO;
+import com.dodo1920.domain.PagingCriteria;
 
 public interface BoardDAO {
 	// 1. 글 생성 (이름)
@@ -16,4 +17,9 @@ public interface BoardDAO {
 	public int delete(int no) throws Exception;
 	
 	public List<BoardVO> listBoard() throws Exception;
+	
+	// 페이징
+	public List<BoardVO> listBoardPaging(int page) throws Exception;
+	
+	public List<BoardVO> listBoardCriteria(PagingCriteria cri) throws Exception;
 }
