@@ -42,6 +42,14 @@
   	<!-- Content Wrapper. Contains page content -->
  		<div class="content-wrapper">
     		<h1>에러 페이지입니다.</h1>
+    		<hr/>
+		         <h4>(${exception.getMessage() })</h4>
+
+		         <ul>
+		         <c:forEach items="${exception.getStackTrace() }" var="stack">
+		            <li>${stack.toString() }</li>
+		         </c:forEach>
+		         </ul>
 		</div>
 	<!-- /.content-wrapper -->
   
