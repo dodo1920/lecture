@@ -85,7 +85,7 @@
                   			 <tr>
 		                        <td>${board.no }</td>
 		                        <td>
-		                        	<a href="/board/read?no=${board.no}">
+		                        	<a href="/board/read?no=${board.no}&page=${PagingParam.cri.page}">
 		                           		${board.title }
 		                        		
 		                        	</a>
