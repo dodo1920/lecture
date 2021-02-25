@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dodo1920.domain.BoardVO;
 import com.dodo1920.domain.PagingCriteria;
+import com.dodo1920.domain.SearchCriteria;
 
 public interface BoardService {
 	public boolean insert(BoardVO vo) throws Exception;
@@ -19,4 +20,6 @@ public interface BoardService {
 	public List<BoardVO> listCriiteria(PagingCriteria cri) throws Exception;
 
 	public int getTotalBoardCnt() throws Exception;
+
+	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception;
 }

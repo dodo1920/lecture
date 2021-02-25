@@ -100,12 +100,14 @@
                </table>
 
                <div>
-                  <form action="" method="GET">
-                     <select name="searchQuery">
+                  <form action="/board/search" method="GET">
+                     <select name="searchType">
+                     	<option value="n">-----------</option>
                         <option value="title">제목</option>
                         <option value="writer">작성자</option>
-                        <option value="content">본문</option>
-                     </select> <input type="text" name="searchWord" id="searchWord" />
+                        <option value="content">내용</option>
+                     </select> 
+                     <input type="text" name="searchWord" id="searchWord" placeholder="검색어를 입력해주세요."/>
                      <button type="submit" class="btn btn-default">검색</button>
                   </form>
                </div>

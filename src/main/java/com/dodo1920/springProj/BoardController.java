@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.dodo1920.domain.BoardVO;
 import com.dodo1920.domain.PagingCriteria;
 import com.dodo1920.domain.PagingParam;
+import com.dodo1920.domain.SearchCriteria;
 import com.dodo1920.service.BoardService;
 
 @Controller
@@ -111,4 +112,16 @@ public class BoardController {
 		
 		model.addAttribute("pagingParam", pp); // 페이징 처리를 위한 파라메터 객체
 	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.GET)
+	public String search(SearchCriteria scri, Model model) throws Exception {
+		logger.info("검색 시작");
+		logger.info(scri.toString());
+		
+		System.out.println(service.goSearch(scri));
+		model.addAttribute("boardList", service.goSearch(scri));
+		
+		return "/board/listCri";
+	}
+
 }

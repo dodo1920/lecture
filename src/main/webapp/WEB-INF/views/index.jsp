@@ -31,7 +31,7 @@
   <script src="resources/plugins/jquery/jquery.min.js"></script>
   <script>
   	$(function() {
-  		alert("!");
+  		
   	});
   </script>
 </head>
