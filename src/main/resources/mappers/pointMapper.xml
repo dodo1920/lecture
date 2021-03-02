@@ -5,6 +5,6 @@
   
   <mapper namespace="com.dodo1920.mappers.pointMapper">
   	<update id="updatePoint">
-  		update tbl_user set upoint = upoint + #{ponit} where uid = #{uid}
+  		update tbl_user set upoint = upoint + #{upoint} where uid = #{uid}
   	</update>
   </mapper>

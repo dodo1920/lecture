@@ -60,3 +60,58 @@ sendDate timestamp,
 primary key(mid)
 );
 
+alter table tbl_message
+add constraint fk_targetId
+foreign key(targetId) references tbl_user(uid);
+
+alter table tbl_message
+add constraint fk_sender
+foreign key(sender) references tbl_user(uid);
+
+select distinct writer from tbl_board;
+
+insert into tbl_user(uid, upw, uname) 
+values('dodo1920', '1234', 'do');
+
+insert into tbl_user(uid, upw, uname) 
+values('1234', '1234', 'mago');
+
+insert into tbl_user(uid, upw, uname) 
+values('abc', '1234', 'iron man');
+
+insert into tbl_user(uid, upw, uname) 
+values('ggggggg', '1234', 'superman');
+
+insert into tbl_user(uid, upw, uname) 
+values('아이디', '1234', 'vatman');
+
+insert into tbl_user(uid, upw, uname) 
+values('aaa', '1234', 'captin America');
+
+insert into tbl_user(uid, upw, uname) 
+values('bbb', '1234', 'Herk');
+
+insert into tbl_user(uid, upw, uname) 
+values('ccc', '1234', 'thor');
+
+select distinct replyer from tbl_reply;
+
+insert into tbl_user(uid, upw, uname) 
+values('bbbbb', '1234', 'black widow');
+
+insert into tbl_user(uid, upw, uname) 
+values('testest', '1234', 'vision');
+
+alter table tbl_board
+add constraint fk_writer
+foreign key(writer) references tbl_user(uid);
+
+alter table tbl_reply
+add constraint fk_reply_replyer
+foreign key(replyer) references tbl_user(uid);
+
+select * from tbl_user;
+
+alter table tbl_user
+add upoint int default 0;
+

@@ -34,7 +34,8 @@
 	<!-- @Repository 패키지 스캔(우리가 만든 빈 추가하기 위해)  => DAO패키지와 Service패키지를 자동 스캔하여 bean을 생성할 수 있도록-->
 	<context:component-scan base-package="com.dodo1920.persistence"></context:component-scan>
 	<context:component-scan base-package="com.dodo1920.service"></context:component-scan>
+	<context:component-scan base-package="com.dodo1920.aop"></context:component-scan>
 	
-	<!-- Spring AOP설정 => AspectJ 라이브러리흫 이용하여 proxy객체 생성-->
+	<!-- Spring AOP설정 => AspectJ 라이브러리흫 이용하여 proxy객체 생성(xml proxy를 설정할 때 필요)-->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>

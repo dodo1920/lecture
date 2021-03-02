@@ -18,7 +18,7 @@ public class PointDAOImpl implements PointDAO {
 	public void updatePoint(String uid, int point) throws Exception {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("uid", uid);
-		param.put("point", point);
+		param.put("upoint", point);
 		
 		ses.update(namespace + ".updatePoint", param);
 
