@@ -116,17 +116,17 @@
                  <ul class="pagination">
                  	<c:if test="${pagingParam.prev }">
                  		<li>
-                 			<a href="listCri?page=${param.page - 1 }"> < </a>
+                 			<a href="search?searchType=${param.searchType}&searchWord=${param.searchWord }&page=${param.page - 1 }"> < </a>
                  		</li>
                  	</c:if>
                  <c:forEach begin="${pagingParam.startPage}" end="${pagingParam.endPage }" var="pageNo">
                  	<li>
-                 		<a href="listCri?page=${pageNo }">${pageNo }</a>
+                 		<a href="search?searchType=${param.searchType}&searchWord=${param.searchWord }&page=${pageNo }">${pageNo }</a>
                  	</li>
                  </c:forEach>
 					<c:if test="${pagingParam.next }">
                  		<li>
-                 			<a href="listCri?page=${param.page + 1 }"> > </a>
+                 			<a href="search?searchType=${param.searchType}&searchWord=${param.searchWord }&page=${param.page + 1 }"> > </a>
                  		</li>
                  	</c:if>
 				 </ul>

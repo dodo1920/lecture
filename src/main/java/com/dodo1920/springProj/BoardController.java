@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,7 +64,7 @@ public class BoardController {
 		logger.info("/read를 get호출");
 		
 		System.out.println("no : " + no);
-		model.addAttribute("board", service.read(no));
+		model.addAttribute("board", service.read(no));		
 		
 	}
 	
@@ -113,15 +114,35 @@ public class BoardController {
 		model.addAttribute("pagingParam", pp); // 페이징 처리를 위한 파라메터 객체
 	}
 	
+//	@RequestMapping(value="/search", method=RequestMethod.GET)
+//	public String search(SearchCriteria scri, Model model) throws Exception {
+//		logger.info("검색 시작");
+//		logger.info(scri.toString());
+//		
+//		System.out.println(service.goSearch(scri));
+//		model.addAttribute("boardList", service.goSearch(scri));
+//		
+//		return "/board/listCri";
+//	}
+	
+	
 	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public String search(SearchCriteria scri, Model model) throws Exception {
-		logger.info("검색 시작");
+	public String listAll(PagingCriteria cri, Model model, SearchCriteria scri) throws Exception {
+		logger.info("/페이징을 이용한 검색 목록 출력");
+		logger.info(cri.toString());
 		logger.info(scri.toString());
 		
-		System.out.println(service.goSearch(scri));
-		model.addAttribute("boardList", service.goSearch(scri));
+		model.addAttribute("boardList", service.searchCriteria(cri, scri));
+		System.out.println(service.searchCriteria(cri, scri));
+		
+		PagingParam pp = new PagingParam();
+		pp.setCri(cri);
+		pp.setTotalCount(service.getTotalSearchBoardCnt(scri));
+		
+		System.out.println(pp.toString());
+		
+		model.addAttribute("pagingParam", pp); // 페이징 처리를 위한 파라메터 객체
 		
 		return "/board/listCri";
 	}
-
 }

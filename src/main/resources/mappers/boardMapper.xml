@@ -38,17 +38,44 @@
   	</select>
   	
   	<select id="goSearch" resultType="com.dodo1920.domain.BoardVO">
-  		select * from test.tbl_board where 
+  		select * from test.tbl_board  
   		<if test="searchType == 'title'">
-  			title like concat('%', #{searchWord}, '%')
+  			where title like concat('%', #{searchWord}, '%')
   		</if>
   		<if test="searchType == 'content'">
-  			content like concat('%', #{searchWord}, '%')
+  			where content like concat('%', #{searchWord}, '%')
   		</if>
   		<if test="searchType == 'writer'">
   			writer like concat('%', #{searchWord}, '%')
   		</if>
   		order by no desc
+  	</select>
+  	
+  	<select id="searchCriteria" parameterType="hashMap" resultType="com.dodo1920.domain.BoardVO">
+  		select * from test.tbl_board 
+  		<if test="searchType == 'title'">
+  			where title like concat('%', #{searchWord}, '%')
+  		</if>
+  		<if test="searchType == 'content'">
+  			where content like concat('%', #{searchWord}, '%')
+  		</if>
+  		<if test="searchType == 'writer'">
+  			where writer like concat('%', #{searchWord}, '%')
+  		</if>
+  		order by no desc limit #{pageStart}, #{perPageNum}
+  	</select>
+  	
+  	<select id="getTotalSearchBoardCnt" resultType="int">
+  		select count(*) from test.tbl_board
+  		<if test="searchType == 'title'">
+  			where title like concat('%', #{searchWord}, '%')
+  		</if>
+  		<if test="searchType == 'content'">
+  			where content like concat('%', #{searchWord}, '%')
+  		</if>
+  		<if test="searchType == 'writer'">
+  			where writer like concat('%', #{searchWord}, '%')
+  		</if>
   	</select>
   </mapper>
  

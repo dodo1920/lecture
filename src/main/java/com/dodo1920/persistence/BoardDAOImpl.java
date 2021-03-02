@@ -1,6 +1,8 @@
 package com.dodo1920.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -71,6 +73,22 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception {
 		return ses.selectList(namespace + ".goSearch", scri);
+	}
+
+	@Override
+	public List<BoardVO> searchCriteria(PagingCriteria cri, SearchCriteria scri) throws Exception {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("searchType", scri.getSearchType());
+		params.put("searchWord", scri.getSearchWord());
+		params.put("pageStart", cri.getPageStart());
+		params.put("perPageNum", cri.getPerPageNum());
+		
+		return ses.selectList(namespace + ".searchCriteria", params);
+	}
+
+	@Override
+	public int getTotalSearchBoardCnt(SearchCriteria scri) throws Exception {
+		return ses.selectOne(namespace + ".getTotalSearchBoardCnt", scri);
 	}
 
 }

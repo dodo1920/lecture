@@ -36,4 +36,9 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value="/test")
+	public String ajaxTest() {
+		return "testJson";
+	}
+	
 }

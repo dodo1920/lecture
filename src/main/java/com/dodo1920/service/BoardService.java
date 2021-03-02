@@ -22,4 +22,8 @@ public interface BoardService {
 	public int getTotalBoardCnt() throws Exception;
 
 	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception;
+
+	public List<BoardVO> searchCriteria(PagingCriteria cri, SearchCriteria scri) throws Exception;
+
+	public int getTotalSearchBoardCnt(SearchCriteria scri) throws Exception;;
 }
