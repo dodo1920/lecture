@@ -40,4 +40,9 @@ public class ReplyDAOImpl implements ReplyDAO {
 
 	}
 
+	@Override
+	public int getBno(int no) throws Exception {
+		return ses.selectOne(ns + ".getBno", no);
+	}
+
 }

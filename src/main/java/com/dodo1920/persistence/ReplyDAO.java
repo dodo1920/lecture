@@ -12,4 +12,6 @@ public interface ReplyDAO {
 	public void update(ReplyVO vo) throws Exception;
 	
 	public void delete(int no) throws Exception;
+	
+	public int getBno(int no) throws Exception;
 }

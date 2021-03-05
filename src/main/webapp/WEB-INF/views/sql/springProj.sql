@@ -111,7 +111,12 @@ add constraint fk_reply_replyer
 foreign key(replyer) references tbl_user(uid);
 
 select * from tbl_user;
+select * from tbl_message;
 
 alter table tbl_user
 add upoint int default 0;
 
+update tbl_user set upoint = upoint + 10 where uid = 'bbb';
+
+alter table test.tbl_board
+add column replyCnt int;tbl_board

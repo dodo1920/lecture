@@ -63,7 +63,7 @@
                         <th>작성자</th>
                         <th>작성일</th>
                         <th>조회수</th>
-                        <th>좋아요</th>
+                        <th>댓글수</th>
                      </tr>
                   </thead>
                   <c:forEach var="board" items="${boardList }" varStatus="status">
@@ -79,6 +79,8 @@
 		                        <td><strike>${board.writer }</strike></td>
 		                        <td><strike><span class="sendTime" id="${status.count }">
 		                        <fmt:formatDate value="${board.regdate }" type="both" pattern="yyyy-MM-dd HH:mm:ss" /></span></strike></td>
+		                        <td><strike>${board.viewcnt }</strike></td>
+		                        <td><strike><span class="badge badge-secondary">${board.replycnt }</span></strike></td>
 		                     </tr>
                   		</c:when>
                   		<c:otherwise>
@@ -93,6 +95,8 @@
 		                        <td>${board.writer }</td>
 		                        <td><span class="sendTime" id="${status.count }">
 		                        <fmt:formatDate value="${board.regdate }" type="both" pattern="yyyy-MM-dd HH:mm:ss" /></span></td>
+		                        <td>${board.viewcnt}</td>
+		                        <td><span class="badge badge-secondary">${board.replyCnt }</span></td>
 		                     </tr>
                   		</c:otherwise>
                   	</c:choose>

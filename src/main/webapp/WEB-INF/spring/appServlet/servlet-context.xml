@@ -21,6 +21,15 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!--  10MB 사이즈의 파일을 업로드 할 수 있도록 설정  (10485760 = 약10MB) -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+	
+	<!-- <beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="E:\lecture\10_SpringUpload"></beans:constructor-arg>
+	</beans:bean>  -->
+	
 	<context:component-scan base-package="com.dodo1920.springProj" />
 	
 	

@@ -25,5 +25,6 @@ public interface BoardService {
 
 	public List<BoardVO> searchCriteria(PagingCriteria cri, SearchCriteria scri) throws Exception;
 
-	public int getTotalSearchBoardCnt(SearchCriteria scri) throws Exception;;
+	public int getTotalSearchBoardCnt(SearchCriteria scri) throws Exception;
+	
 }

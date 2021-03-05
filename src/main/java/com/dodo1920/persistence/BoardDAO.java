@@ -29,6 +29,12 @@ public interface BoardDAO {
 	public List<BoardVO> goSearch(SearchCriteria scri) throws Exception;
 
 	public List<BoardVO> searchCriteria(PagingCriteria cri, SearchCriteria scri) throws Exception;
-
+	
+	// 검색 결과 글 수 가져오기
 	public int getTotalSearchBoardCnt(SearchCriteria scri) throws Exception;
+	
+	// 답글 달렸을 때 답글 수 update
+	public void updateReply(int no, int amount) throws Exception;
+	
+	public void updateViewCnt(int no) throws Exception;
 }
