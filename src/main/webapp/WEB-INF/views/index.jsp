@@ -41,7 +41,17 @@
 	
   	<!-- Content Wrapper. Contains page content -->
  		<div class="content-wrapper">
-    
+    		<h1>여기가 본문</h1>
+    		
+    		<c:if test="${loginMember != null}">
+    			<form action="" method="post">
+    				<div>
+    					${loginMember.uid} 님 방갑습니다.
+    					<input type="submit" value="로그아웃"/>
+    				</div>
+    			</form>
+    		</c:if>
+    		
 		</div>
 	<!-- /.content-wrapper -->
   

@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.dodo1920.service.BoardService;
 import com.dodo1920.util.MediaConfirm;
 import com.dodo1920.util.uploadFileProcess;
 
@@ -37,8 +39,12 @@ import com.dodo1920.util.uploadFileProcess;
 @Controller
 public class HomeController {
 	
+	@Inject
+	private BoardService bService;
+	
 	private static String uploadPath = "E:\\lecture\\10_SpringUpload";
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -87,6 +93,15 @@ public class HomeController {
 	@RequestMapping(value="/uploadAjax", method=RequestMethod.GET)
 	public void uploadAjax() {
 		
+	}
+	
+	@RequestMapping(value="/doInterceptor", method = RequestMethod.GET)
+	public String doInterceptor(Locale locale, Model model) throws Exception {
+		System.out.println("/doInterceptor가 GET방식으로 호출됨");
+		
+		model.addAttribute("boardList", bService.listAll());
+		
+		return "home";
 	}
 	
 	@RequestMapping(value="/uploadAjax", method=RequestMethod.POST, produces = "text/plain; charset=UTF-8")
